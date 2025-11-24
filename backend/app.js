@@ -15,7 +15,7 @@ const io = new Server(server);
 
 // Database connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/mercapp';
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGODB_URI)
     .then(()=> console.log('Connected to MongoDB'))
     .catch(err=> console.error('MongoDB connection error:', err));
 
@@ -46,8 +46,8 @@ app.use((req, res, next) => {
 });
 
 // Routes
-const productRoutes = require('./routes/productRoutes');
-const authRoutes = require('./routes/authRoutes');
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
 const apiRoutes = require('./routes/api');
 
 app.use('/', authRoutes);
