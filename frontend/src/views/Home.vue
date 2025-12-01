@@ -11,7 +11,7 @@
         </option>
         </select>
 
-        <div v-if="loading">Cargando...</div>
+        <div v-if="loading" class="loader"></div>
 
         <div v-else>
         <div v-if="filtered.length === 0">No hay productos</div>
